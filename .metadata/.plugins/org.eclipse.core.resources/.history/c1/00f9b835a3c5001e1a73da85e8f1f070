@@ -1,0 +1,8 @@
+package minesweeper;
+
+public class Cell {
+	private int[] coordinates = {-1, -1};
+	private boolean hasBomb;
+	private boolean hasBeenOpened;
+	private int surroundingBombsCount;
+}

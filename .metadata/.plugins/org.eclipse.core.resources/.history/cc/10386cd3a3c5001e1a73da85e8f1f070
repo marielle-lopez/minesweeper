@@ -1,0 +1,12 @@
+package minesweeper;
+
+public class Cell {
+	private int[] coordinates = {-1, -1};
+	private boolean hasBomb;
+	private boolean hasBeenOpened = false;
+	private int surroundingBombsCount;
+	
+	public Cell(boolean hasBomb) {
+		this.hasBomb = hasBomb;
+	};
+}
