@@ -1,4 +1,8 @@
+![Minesweeper Icon](https://static.wikia.nocookie.net/logopedia/images/9/98/Minesweeper_1992.png/revision/latest?cb=20220716174154)
+
 # Minesweeper
+
+A Java CLI to play the classic game, Minesweeper.
 
 ## To-Do
 
