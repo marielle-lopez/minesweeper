@@ -19,4 +19,8 @@ public class Cell {
 	public void setHasBeenOpened(boolean hasBeenOpened) {
 		this.hasBeenOpened = hasBeenOpened;
 	};
+	
+	public boolean getHasBeenOpened() {
+		return this.hasBeenOpened;
+	};
 }
