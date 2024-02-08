@@ -8,10 +8,8 @@ A Java CLI to play the classic game, Minesweeper.
 
 ### High Priority
 
-- Create method that generates the coordinates of a `Cell`
-- Pick the coordinates of bombs and alter the `hasBomb` property of corresponding cells
-- Implement `Cell` into `Grid` to create a grid using the `Cell` class
-- Create a `Cell` for each cell in the Minesweeper grid
+- Receive user input through the console
+- Randomly generate the coordinates of bombs and alter the `hasBomb` property of corresponding cells
 
 ### Low Priority
 
@@ -20,6 +18,12 @@ A Java CLI to play the classic game, Minesweeper.
 
 ## Task Completion History
 
+### February 8, 2024
+
+- Generated default bomb coordinates (top row of the grid)
+
+I'm still running into the issue of duplicate bomb coordinates. So, for now, I'll put this concept on the backburner and just generate bomb coordinates in the first row of the grid.
+
 ### February 7, 2024
 
 - Created the `Grid` and `Cell` classes
@@ -27,7 +31,7 @@ A Java CLI to play the classic game, Minesweeper.
 - Begun the `Cell` class with appropriate properties with default values, and created constructor & setter methods
 - Modified the constructor of `Grid` to generate a grid of `Cell` objects
 
-The `Grid` class is reponsible for outputting the game's grid to the console. The displayed 'icon' of each cell depends on its corresponding value.
+The `Grid` class is responsible for outputting the game's grid to the console. The displayed 'icon' of each cell depends on its corresponding value.
 
 - ` ` - a cell that hasn't been selected by the user
 - `x` - a cell that has been opened and doesn't have a bomb in it
