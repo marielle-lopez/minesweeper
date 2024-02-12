@@ -21,6 +21,7 @@ A Java CLI to play the classic game, Minesweeper.
 
 - Utilised a HashMap instead of ArrayList to store cells of a grid and cells containing bombs
 - Changed `hasBeenOpened` property to `true` when user 'selects' it
+- Terminate game when the user 'selects' a cell containing a bomb
 
 I realised that ArrayLists have their limits. One of the biggest ones is that you cannot identify whether a value exists inside of an ArrayList unless you iterate through it whilst doing a comparison. A HashMap makes it so much easier as each value has an associated key which you can search for, instead of iterating through an ArrayList.
 
