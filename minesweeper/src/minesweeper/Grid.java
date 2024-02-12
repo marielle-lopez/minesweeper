@@ -1,62 +1,48 @@
 package minesweeper;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Random;
 
 public class Grid {
-	private ArrayList<ArrayList<Cell>> grid = new ArrayList<ArrayList<Cell>>();
+	private ArrayList<HashMap<String, Cell>> grid = new ArrayList<>();
 	private int length = 10;
 	private int bombCount = 10;
-	private ArrayList<int[]> bombsCoordinates = new ArrayList<int[]>();
+	private HashMap<String, Cell> bombsCoordinates = new HashMap<>();
 	
 	public Grid() {	
-		setBombsCoordinates();
-		
 		for (int i = 0; i < this.length; i++) {
-			ArrayList<Cell> row = new ArrayList<Cell>();
+			HashMap<String, Cell> row = new HashMap<>();
 			
 			for (int j = 0; j < this.length; j++) {
 				Cell cell = new Cell(i, j, false);
-				row.add(cell);
+				row.put(String.format("r%dc%d", i, j), cell);
 			};
 			
 			grid.add(row);
 		};
+		
+		setBombsCoordinates();
 	};
 	
-	// TODO: generate unique random bomb coordinates
 	private void setBombsCoordinates() {
-		for (int i = 0; i < this.length; i++) {
-			int[] bombCoordinate = {0, i};
-			bombsCoordinates.add(bombCoordinate);
-		};
+		Random random = new Random();
 		
-//		int bombsSetCount = 0;
-//		
-//		for (int i = 0; i < this.length; i++) {
-//			int[] dummyArray = {-1, -1};
-//			bombsCoordinates.add(dummyArray);
-//		};
-//		
-//		while (bombsSetCount < this.bombCount) {
-//			int randomRow = new Random().nextInt(10 - 1 + 1) + 1;
-//			int randomColumn = new Random().nextInt(10 - 1 + 1) + 1;
-//			int[] bombCoordinate = {randomRow, randomColumn};
-//			int index = 0;
-//			
-//			for (int[] coordinate : bombsCoordinates) {
-//				if (coordinate[0] != bombCoordinate[0] && coordinate[1] != bombCoordinate[1]) {
-//					this.bombsCoordinates.add(bombCoordinate); // FIXME: shouldn't be adding to list we're iterating through
-//					++bombsSetCount;
-//					System.out.println(Arrays.toString(bombCoordinate));
-//				} else {					
-//					System.out.println(String.format("Duplicate coordinate generated: %s", Arrays.toString(bombCoordinate)));
-//				};
-//				index++;
-//			};
-//			
-//		};
+		int count = 0;
+		while (count < this.bombCount) {
+			int randomRow = random.nextInt(this.bombCount);
+			int randomColumn = random.nextInt(this.bombCount);
+			
+			if (!this.bombsCoordinates.containsKey(String.format("r%dc%d", randomRow, randomColumn))) {
+				this.grid.get(randomRow).get(String.format("r%dc%d", randomRow, randomColumn)).setHasBomb(true);
+				this.bombsCoordinates.put(String.format("r%dc%d", randomRow, randomColumn), this.grid.get(randomRow).get(String.format("r%dc%d", randomRow, randomColumn)));
+				count++;
+			} else {
+				System.out.println(String.format("Generated duplicate key: %s", String.format("r%dc%d", randomRow, randomColumn)));
+			}
+		}
+		
+		System.out.println("Bomb coordinates have been set.");
 	};
 	
 	private String generateTableLine() {
@@ -103,10 +89,11 @@ public class Grid {
 				};
 				
 				// output icon depending on cell's value
-				if (this.grid.get(j).get(i).getHasBeenOpened() == false) {
-					System.out.print("|   ");
-				} else {
+				Cell currentCell = this.grid.get(i).get(String.format("r%dc%d", i, j));
+				if (currentCell.getHasBomb()) {
 					System.out.print("| x ");
+				} else {
+					System.out.print("|   ");
 				}
 			};	
 			
