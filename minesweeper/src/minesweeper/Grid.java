@@ -25,10 +25,17 @@ public class Grid {
 		setBombsCoordinates();
 	};
 	
-	public void openCell(String coordinate) {
+	public boolean openCell(String coordinate) {
 		int row = Integer.parseInt(String.valueOf(coordinate.charAt(1)));
+		
+		if (grid.get(row).get(coordinate).getHasBomb() == true) {
+			System.out.println("Bomb found!");
+			return true;
+		}
+		
 		grid.get(row).get(coordinate).setHasBeenOpened(true);
 		System.out.println(grid.get(row).get(coordinate));
+		return false;
 	}
 	
 	private void setBombsCoordinates() {
@@ -98,6 +105,8 @@ public class Grid {
 				Cell currentCell = this.grid.get(i).get(String.format("r%dc%d", i, j));
 				if (currentCell.getHasBomb()) {
 					System.out.print("| x ");
+				} else if (currentCell.getHasBeenOpened()) {
+					System.out.print("| - ");
 				} else {
 					System.out.print("|   ");
 				}
