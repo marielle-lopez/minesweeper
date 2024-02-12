@@ -9,7 +9,8 @@ A Java CLI to play the classic game, Minesweeper.
 ### High Priority
 
 - Receive user input through the console
-- Randomly generate the coordinates of bombs and alter the `hasBomb` property of corresponding cells
+- 'Open' a cell depending on the user's entered coordinates
+- Prevent user error
 
 ### Low Priority
 
@@ -17,6 +18,14 @@ A Java CLI to play the classic game, Minesweeper.
 - Allow the user to change the dimensions of the grid
 
 ## Task Completion History
+
+### February 12, 2024
+
+- Utilised a HashMap instead of ArrayList to store cells of a grid and cells containing bombs
+
+I realised that ArrayLists have their limits. One of the biggest ones is that you cannot identify whether a value exists inside of an ArrayList unless you iterate through it whilst doing a comparison. A HashMap makes it so much easier as each value has an associated key which you can search for, instead of iterating through an ArrayList.
+
+So, using HashMap, I've been able to generate unique random bomb coordinates, and updating their associated Cell's `hasBomb` property to `true`! The code is a little messy, but it still works. Refactoring will be a future goal.
 
 ### February 8, 2024
 
