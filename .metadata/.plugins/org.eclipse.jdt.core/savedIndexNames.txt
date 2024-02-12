@@ -1,4 +1,2 @@
 INDEX VERSION 1.134+C:\Users\Marielle\Documents\programming\repositories\minesweeper-java\.metadata\.plugins\org.eclipse.jdt.core
-2621521647.index
 1865797976.index
-263563199.index
