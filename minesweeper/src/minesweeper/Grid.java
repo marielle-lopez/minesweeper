@@ -25,6 +25,12 @@ public class Grid {
 		setBombsCoordinates();
 	};
 	
+	public void openCell(String coordinate) {
+		int row = Integer.parseInt(String.valueOf(coordinate.charAt(1)));
+		grid.get(row).get(coordinate).setHasBeenOpened(true);
+		System.out.println(grid.get(row).get(coordinate));
+	}
+	
 	private void setBombsCoordinates() {
 		Random random = new Random();
 		
