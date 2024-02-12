@@ -6,8 +6,10 @@ public class App {
 
 	public static void main(String[] args) {
 		Grid grid = new Grid();
-		grid.printGrid();
+		grid.printGrid(false);
+		System.out.println(grid.getBombsCoordinates());
 		boolean isGameOver = false;
+		
 		String input = "";		
 		Scanner s = new Scanner(System.in);
 		
@@ -23,7 +25,7 @@ public class App {
 			coordinate += String.format("c%d", Integer.parseInt(input) - 1);
 			
 			isGameOver = grid.openCell(coordinate);
-			grid.printGrid();
+			grid.printGrid(isGameOver);
 		}
 		
 		System.out.println("End of game.");
