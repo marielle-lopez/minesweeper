@@ -38,6 +38,10 @@ public class Grid {
 		return false;
 	}
 	
+	public HashMap<String, Cell> getBombsCoordinates() {
+		return this.bombsCoordinates;
+	}
+	
 	private void setBombsCoordinates() {
 		Random random = new Random();
 		
@@ -70,7 +74,7 @@ public class Grid {
 		return line;
 	};
 	
-	public void printGrid() {
+	public void printGrid(boolean displayBombs) {
 		// output column headers
 		for (int i = 0; i < this.length; i++) {
 			if (i == 0) {
@@ -103,7 +107,7 @@ public class Grid {
 				
 				// output icon depending on cell's value
 				Cell currentCell = this.grid.get(i).get(String.format("r%dc%d", i, j));
-				if (currentCell.getHasBomb()) {
+				if (currentCell.getHasBomb() && displayBombs == true) {
 					System.out.print("| x ");
 				} else if (currentCell.getHasBeenOpened()) {
 					System.out.print("| - ");
