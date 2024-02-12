@@ -8,8 +8,6 @@ A Java CLI to play the classic game, Minesweeper.
 
 ### High Priority
 
-- Receive user input through the console
-- 'Open' a cell depending on the user's entered coordinates
 - Prevent user error
 
 ### Low Priority
@@ -22,6 +20,7 @@ A Java CLI to play the classic game, Minesweeper.
 ### February 12, 2024
 
 - Utilised a HashMap instead of ArrayList to store cells of a grid and cells containing bombs
+- Changed `hasBeenOpened` property to `true` when user 'selects' it
 
 I realised that ArrayLists have their limits. One of the biggest ones is that you cannot identify whether a value exists inside of an ArrayList unless you iterate through it whilst doing a comparison. A HashMap makes it so much easier as each value has an associated key which you can search for, instead of iterating through an ArrayList.
 
