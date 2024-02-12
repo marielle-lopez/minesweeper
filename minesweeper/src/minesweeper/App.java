@@ -22,9 +22,8 @@ public class App {
 			input = s.nextLine();
 			coordinate += String.format("c%d", Integer.parseInt(input) - 1);
 			
-			grid.openCell(coordinate);
-			
-			System.out.println(coordinate);
+			isGameOver = grid.openCell(coordinate);
+			grid.printGrid();
 		}
 		
 		System.out.println("End of game.");
