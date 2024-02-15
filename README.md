@@ -9,11 +9,14 @@ A Java CLI to play the classic game, Minesweeper.
 ### High Priority
 
 - Prevent user error
+- Prevent user from selecting an already-selected cell
+- Discovering an empty cell reveals all cells around it, and cascade the effect into surrounding empty cells
 
 ### Low Priority
 
 - Add a description on how to play Minesweeper when a game is initiated
 - Allow the user to change the dimensions of the grid
+- Allow the user to pick the number of mines
 
 ## Task Completion History
 
