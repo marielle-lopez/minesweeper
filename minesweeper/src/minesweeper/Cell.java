@@ -26,6 +26,10 @@ public class Cell {
 		this.surroundingBombsCount = surroundingBombsCount;
 	};
 	
+	public int getSurroundingBombsCount() {
+		return this.surroundingBombsCount;
+	}
+	
 	public void setHasBeenOpened(boolean hasBeenOpened) {
 		this.hasBeenOpened = hasBeenOpened;
 	};
