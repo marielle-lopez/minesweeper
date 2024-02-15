@@ -25,8 +25,13 @@ public class Grid {
 		setBombsCoordinates();
 	};
 	
+	public int getLength() {
+		return this.length;
+	}
+	
 	public boolean openCell(String coordinate) {
 		int row = Integer.parseInt(String.valueOf(coordinate.charAt(1)));
+		int column = Integer.parseInt(String.valueOf(coordinate.charAt(3)));
 		
 		if (grid.get(row).get(coordinate).getHasBomb() == true) {
 			System.out.println("Bomb found!");
@@ -34,7 +39,8 @@ public class Grid {
 		}
 		
 		grid.get(row).get(coordinate).setHasBeenOpened(true);
-		System.out.println(grid.get(row).get(coordinate));
+//		System.out.println(grid.get(row).get(coordinate));
+		this.checkSurroundingCells(row, column);
 		return false;
 	}
 	
@@ -107,13 +113,14 @@ public class Grid {
 				
 				// output icon depending on cell's value
 				Cell currentCell = this.grid.get(i).get(String.format("r%dc%d", i, j));
+				
 				if (currentCell.getHasBomb() && displayBombs == true) {
 					System.out.print("| x ");
 				} else if (currentCell.getHasBeenOpened()) {
-					System.out.print("| - ");
+					System.out.print(String.format("| %d ", currentCell.getSurroundingBombsCount()));
 				} else {
 					System.out.print("|   ");
-				}
+				} 
 			};	
 			
 			// output | at end of row
@@ -123,4 +130,43 @@ public class Grid {
 		// output horizontal grid line at the end of the grid
 		System.out.println(generateTableLine());
 	};
+	
+	public void checkSurroundingCells(int row, int column) {
+		int surroundingBombsCount = 0;
+		int startingRow = row - 1;
+		int startingColumn = column - 1;
+		
+		for (int i = startingRow; i < row + 2; i++) {
+			if (i < 0) {
+				i = 0;
+			}
+			
+			if (i > this.length - 1) {
+				break;
+			}
+			
+			for (int j = startingColumn; j < column + 2; j++) {
+				if (j < 0) {
+					j = 0;
+				}
+				
+				if (j > this.length - 1) {
+					break;
+				}
+				
+				if (i == row && j == column) {
+					continue;
+				}
+				
+				if (this.grid.get(i).get(String.format("r%dc%d", i, j)).getHasBomb()) {
+					surroundingBombsCount++;
+				}
+				
+				System.out.println(this.grid.get(i).get(String.format("r%dc%d", i, j)));
+			}
+		}
+		
+		this.grid.get(row).get(String.format("r%dc%d", row, column)).setSurroundingBombsCount(surroundingBombsCount);
+		System.out.println(String.format("%d bombs!", surroundingBombsCount));
+	}
 }
