@@ -17,6 +17,11 @@ A Java CLI to play the classic game, Minesweeper.
 
 ## Task Completion History
 
+### February 15, 2024
+
+- Identified number of bombs in surrounding cells of a chosen Cell and displayed such count on the grid
+- Terminated the game when user selected all non-bomb cells
+
 ### February 12, 2024
 
 - Utilised a HashMap instead of ArrayList to store cells of a grid and cells containing bombs
