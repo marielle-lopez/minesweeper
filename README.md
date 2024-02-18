@@ -20,6 +20,11 @@ A Java CLI to play the classic game, Minesweeper.
 
 ## Task Completion History
 
+### February 18, 2024
+
+- Restarted the project using test-driven development
+- Created tests for generating strings for the grid, and implemented their corresponding methods in the `Grid` class
+
 ### February 15, 2024
 
 - Identified number of bombs in surrounding cells of a chosen Cell and displayed such count on the grid
