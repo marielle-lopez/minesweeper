@@ -2,7 +2,7 @@
 
 # Minesweeper
 
-A Java CLI to play the classic game, Minesweeper.
+A Java CLI to play a basic version of the classic game Minesweeper.
 
 ## To-Do
 
@@ -24,6 +24,10 @@ A Java CLI to play the classic game, Minesweeper.
 
 - Identified number of bombs in surrounding cells of a chosen Cell and displayed such count on the grid
 - Terminated the game when user selected all non-bomb cells
+
+From here, the next goal is to reveal all cells around a selected empty Cell, and having this effect cascade into other nearby empty Cells. This would involve recursion.
+
+Since the MVP is done, I'd really like to re-do this project using a test-driven development process (TDD). With this project, I had trouble deciding what approaches to use for certain features and because of this, my code is messy and could definitely be refactored. The process of TDD really helps breaking up your code into its building blocks.
 
 ### February 12, 2024
 
