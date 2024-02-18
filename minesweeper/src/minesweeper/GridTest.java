@@ -54,4 +54,25 @@ class GridTest {
 		String generatedMiddleLine = grid.generateMiddleGridLine();
 		assertEquals("├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤", generatedMiddleLine);
 	}
+	
+	@Test
+	void generateColumnGridLabels_LengthIs7_ReturnsColumnGridLabelsString() {
+		Grid grid = new Grid(7);
+		String columnLabels = grid.generateColumnGridLabels();
+		assertEquals("     1   2   3   4   5   6   7", columnLabels);
+	}
+	
+	@Test
+	void generateRowGridLabel_RowIs1_ReturnsRowGridLabelString() {
+		Grid grid = new Grid(10);
+		String generatedRowLabel = grid.generateRowGridLabel(1);
+		assertEquals(" 1 ", generatedRowLabel);
+	}
+	
+	@Test
+	void generateRowGridLabel_RowIs10_ReturnsRowGridLabelString() {
+		Grid grid = new Grid(10);
+		String generatedRowLabel = grid.generateRowGridLabel(10);
+		assertEquals("10 ", generatedRowLabel);
+	}
 }
