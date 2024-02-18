@@ -10,25 +10,25 @@ public class Grid {
 	public String generateTopGridLine() {
 		String topLine = "┌";
 		for (int i = 1; i < this.length; i++) {
-			topLine += "─┬";
+			topLine += "───┬";
 		}
-		topLine += "─┐";
+		topLine += "───┐";
 		return topLine;
 	}
 	
 	public String generateBottomGridLine() {
 		String bottomLine = "└";
 		for (int i = 1; i < this.length; i++) {
-			bottomLine += "─┴";
+			bottomLine += "───┴";
 		}
-		bottomLine += "─┘";
+		bottomLine += "───┘";
 		return bottomLine;
 	}
 	
 	public String generateCellGridLines() {
 		String cellLines = "│";
 		for (int i = 1; i <= this.length; i++) {
-			cellLines += " │";
+			cellLines += "   │";
 		}
 		return cellLines;
 	}
@@ -36,9 +36,19 @@ public class Grid {
 	public String generateMiddleGridLine() {
 		String middleLine = "├";
 		for (int i = 1; i < this.length; i++) {
-			middleLine += "─┼";
+			middleLine += "───┼";
 		}
-		middleLine += "─┤";
+		middleLine += "───┤";
 		return middleLine;
+	}
+	
+	public void printGrid() {
+		System.out.println(this.generateTopGridLine());
+		for (int i = 1; i < this.length; i++) {
+			System.out.println(this.generateCellGridLines());
+			System.out.println(this.generateMiddleGridLine());
+		}
+		System.out.println(this.generateCellGridLines());
+		System.out.println(this.generateBottomGridLine());
 	}
 }
