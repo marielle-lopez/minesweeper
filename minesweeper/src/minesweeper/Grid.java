@@ -43,12 +43,13 @@ public class Grid {
 	}
 	
 	public void printGrid() {
-		System.out.println(this.generateTopGridLine());
+		System.out.println(String.format("   %s", this.generateTopGridLine()));
 		for (int i = 1; i < this.length; i++) {
+			System.out.print(String.format(" %d ", i));
 			System.out.println(this.generateCellGridLines());
-			System.out.println(this.generateMiddleGridLine());
+			System.out.println(String.format("   %s", this.generateMiddleGridLine()));
 		}
-		System.out.println(this.generateCellGridLines());
-		System.out.println(this.generateBottomGridLine());
+		System.out.println(String.format("%d %s", this.length, this.generateCellGridLines()));
+		System.out.println(String.format("   %s", this.generateBottomGridLine()));
 	}
 }
