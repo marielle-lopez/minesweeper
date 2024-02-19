@@ -24,6 +24,9 @@ A Java CLI to play the classic game, Minesweeper.
 
 - Restarted the project using test-driven development
 - Created tests for generating strings for the grid, and implemented their corresponding methods in the `Grid` class
+- Created `Cell` class and added corresponding getters and setters for its properties
+- Enabled user input to be taken to 'open' a cell
+- Terminate game when maximum number of turns have been reached or when a cell with a bomb is selected by the user
 
 ### February 15, 2024
 
