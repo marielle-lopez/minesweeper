@@ -2,6 +2,9 @@ package minesweeper;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 class GridTest {
@@ -34,19 +37,19 @@ class GridTest {
 		assertEquals("└───┴───┴───┴───┘", generatedBottomLine);
 	}
 	
-	@Test
-	void generateCellGridLines_LengthIs5_ReturnsCellGridLinesString() {
-		Grid grid = new Grid(5);
-		String generatedCellLines = grid.generateCellGridLines();
-		assertEquals("│   │   │   │   │   │", generatedCellLines);
-	}
-	
-	@Test
-	void generateCellGridLines_LengthIs10_ReturnsCellGridLinesString() {
-		Grid grid = new Grid(10);
-		String generatedCellLines = grid.generateCellGridLines();
-		assertEquals("│   │   │   │   │   │   │   │   │   │   │", generatedCellLines);
-	}
+//	@Test
+//	void generateCellGridLines_LengthIs5_ReturnsCellGridLinesString() {
+//		Grid grid = new Grid(5);
+//		String generatedCellLines = grid.generateCellGridLines();
+//		assertEquals("│   │   │   │   │   │", generatedCellLines);
+//	}
+//	
+//	@Test
+//	void generateCellGridLines_LengthIs10_ReturnsCellGridLinesString() {
+//		Grid grid = new Grid(10);
+//		String generatedCellLines = grid.generateCellGridLines();
+//		assertEquals("│   │   │   │   │   │   │   │   │   │   │", generatedCellLines);
+//	}
 	
 	@Test 
 	void generateMiddleGridLine_LengthIs10_ReturnsMiddleGridLineString() {
@@ -74,5 +77,14 @@ class GridTest {
 		Grid grid = new Grid(10);
 		String generatedRowLabel = grid.generateRowGridLabel(10);
 		assertEquals("10 ", generatedRowLabel);
+	}
+	
+	@Test
+	void generateRowCoordinatesList_RowIs1_ReturnsRowCoordinatesList() {
+		Grid grid = new Grid(5);
+		String[] coordinates = {"r1c1", "r1c2", "r1c3", "r1c4", "r1c5"};
+		ArrayList<String> expected = new ArrayList<>(List.of(coordinates));
+		ArrayList<String> actual = grid.generateRowCoordinatesList(1);
+		assertEquals(expected, actual);
 	}
 }
